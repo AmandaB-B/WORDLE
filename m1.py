@@ -106,15 +106,21 @@ label_grid = [
     [label26, label27, label28, label29, label30]
 ]
 alphabet= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-
-
+ 
+current_col =0
+current_row=0
+current_lbl=(current_col,current_row)
+def next_index():
+        global current_index
+        if current_index < len(1):
+            current_index +=1
+            
+             
 def letter_1():
-    for x in label_grid:
-        if x in alphabet:
-            x=x
-        else:
-            #go on to the next one 
+    if current_index < len(label_grid): 
+        label1["text"]=label1["text"]+"Q"
 
+     
 def letter_2():
     label1["text"]=label1["text"]+"W"
 def letter_3():
