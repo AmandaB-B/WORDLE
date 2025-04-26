@@ -109,16 +109,23 @@ alphabet= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","
  
 current_col =0
 current_row=0
-current_lbl=(current_col,current_row)
+
 def next_index():
-        global current_index
-        if current_index < len(1):
-            current_index +=1
+        global current_col,current_row
+        if current_col >= len(label_grid[0]):
+            current_col=0
+            current_row +=1
+        if current_row >= len(label_grid):
+            current_row=0
+            current_col=0
             
              
 def letter_1():
-    if current_index < len(label_grid): 
-        label1["text"]=label1["text"]+"Q"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = label["text"] + "Q"
+
+        next_index()
 
      
 def letter_2():
