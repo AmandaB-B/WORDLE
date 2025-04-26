@@ -116,31 +116,39 @@ def next_index():
     if current_col >= len(label_grid[0]):
         current_col = 0
         current_row += 1
+        if current_row >= len(label_grid):
+            current_row = len(label_grid) - 1 
 
 command= ["S","M","A","R","T"]
 
-def answer_checker():
-    if current_row == label_grid[4]:
-        for x in current_row:
-            if x in command:
-                color_changer()
-            else:
-                pass
+# def answer_checker():
+#     if current_col == 0 and current_row < len(label_grid):
+#         color_changer()
+#     # if current_row == label_grid[4]:
+#     #     for x in current_row:
+#     #         if x in command:
+#     #             color_changer()
+#     #         else:
+#     #             pass
 
 
-def color_changer():
-    ANSWER="SMART"
+# def color_changer():
+#     global current_row, current_col
+#     ANSWER="SMART"
     
-    for x in range(5):
-        letter=label_grid[current_row][x]["text"]
-        label=label_grid[current_row][x]
+#     for x in range(5):
+#         letter=label_grid[current_row][x]["text"]
+#         label=label_grid[current_row][x]
 
-        if letter == ANSWER[x]:
-            label["bg"] = "green"
-        elif letter in ANSWER:
-            label["bg"] = "yellow"
-        else:
-            pass
+#         if letter == ANSWER[x]:
+#             label["bg"] = "green"
+#         elif letter in ANSWER:
+#             label["bg"] = "yellow"
+#         else:
+#             pass
+
+#     current_row += 1
+#     current_col = 0
 
     # if current_row[0]== "S":
     #     label= label_grid[current_row[0]]
@@ -174,7 +182,29 @@ def color_changer():
     #     label["bg"] = "yellow"
     
 
+def answer_checker():
+    global current_row, current_col
+    ANSWER="SMART"
 
+    guess = "".join([label["text"] for label in label_grid[current_row]])
+
+    if len(guess) != 5:
+        return  # don't check unless 5 letters typed
+  
+
+    for x in range(5):
+        letter=label_grid[current_row][x]["text"]
+        label=label_grid[current_row][x]
+
+        if letter == ANSWER[x]:
+            label["bg"] = "green"
+        elif letter in ANSWER:
+            label["bg"] = "yellow"
+        else:
+            pass
+
+    current_row += 1
+    current_col = 0
 
 
 
@@ -398,7 +428,7 @@ frame4.pack()
 frame4.rowconfigure([0,1], minsize = 5)
 frame4.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
-button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=color_changer)
+button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=answer_checker)
 button19.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
 button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5)
 button20.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
