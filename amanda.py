@@ -9,7 +9,7 @@ frame1.pack()
 frame1.rowconfigure([0,1,2,3,4,5,6,7], minsize = 50)
 frame1.columnconfigure([0,1,2,3,4,5,6], minsize = 50)
 
-
+WORD= "SMART"
 
 
 
@@ -117,7 +117,67 @@ def next_index():
         current_col = 0
         current_row += 1
 
-            
+command= ["S","M","A","R","T"]
+
+def answer_checker():
+    if current_row == label_grid[4]:
+        for x in current_row:
+            if x in command:
+                color_changer()
+            else:
+                pass
+
+
+def color_changer():
+    ANSWER="SMART"
+    
+    for x in range(5):
+        letter=label_grid[current_row][x]["text"]
+        label=label_grid[current_row][x]
+
+        if letter == ANSWER[x]:
+            label["bg"] = "green"
+        elif letter in ANSWER:
+            label["bg"] = "yellow"
+        else:
+            pass
+
+    # if current_row[0]== "S":
+    #     label= label_grid[current_row[0]]
+    #     label["bg"] = "green"
+    # else:
+    #     label= label_grid[current_row[0]]
+    #     label["bg"] = "yellow"
+    # if current_row[1]== "M":
+    #     label= label_grid[current_row[1]]
+    #     label["bg"] = "green"
+    # else:
+    #     label= label_grid[current_row[1]]
+    #     label["bg"] = "yellow"
+    # if current_row[2]== "A":
+    #     label= label_grid[current_row[2]]
+    #     label["bg"] = "green"
+    # else:
+    #     label= label_grid[current_row[2]]
+    #     label["bg"] = "yellow"
+    # if current_row[3]== "R":
+    #     label= label_grid[current_row[3]]
+    #     label["bg"] = "green"
+    # else:
+    #     label= label_grid[current_row[3]]
+    #     label["bg"] = "yellow"
+    # if current_row[4]== "T":
+    #     label= label_grid[current_row[4]]
+    #     label["bg"] = "green"
+    # else:
+    #     label= label_grid[current_row[4]]
+    #     label["bg"] = "yellow"
+    
+
+
+
+
+
              
 def letter_1():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
@@ -125,8 +185,6 @@ def letter_1():
         label["text"] = "Q"
 
         next_index()
-
-     
 def letter_2():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
@@ -136,142 +194,142 @@ def letter_2():
 def letter_3():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "E"
 
         next_index()
 def letter_4():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "R"
 
         next_index()
 def letter_5():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "T"
 
         next_index()
 def letter_6():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "Y"
 
         next_index()
 def letter_7():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "U"
 
         next_index()
 def letter_8():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "I"
 
         next_index()
 def letter_9():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "O"
 
         next_index()    
 def letter_10():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "P"
 
         next_index()
 
 def letter_11():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "S"
 
         next_index()
 def letter_12():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "D"
 
         next_index()
 def letter_13():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "F"
 
         next_index()
 def letter_14():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "G"
 
         next_index()
 def letter_15():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "H"
 
         next_index()
 def letter_16():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "J"
 
         next_index()
 def letter_17():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "K"
 
         next_index()
 def letter_18():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "L"
 
         next_index()
    
 def letter_20():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "Z"
 
         next_index()
 
 def letter_21():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "X"
 
         next_index()
 def letter_22():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "C"
 
         next_index()
 def letter_23():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "V"
 
         next_index()
 def letter_24():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "B"
 
         next_index()
 def letter_25():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "N"
 
         next_index()
 def letter_26():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "M"
 
         next_index()
 
@@ -340,7 +398,7 @@ frame4.pack()
 frame4.rowconfigure([0,1], minsize = 5)
 frame4.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
-button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5)
+button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=color_changer)
 button19.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
 button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5)
 button20.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
