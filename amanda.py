@@ -124,33 +124,36 @@ command= ["S","M","A","R","T"]
 # def answer_checker():
 #     if current_col == 0 and current_row < len(label_grid):
 #         color_changer()
-#     # if current_row == label_grid[4]:
-#     #     for x in current_row:
-#     #         if x in command:
-#     #             color_changer()
-#     #         else:
-#     #             pass
+    # if current_row == label_grid[4]:
+    #     for x in current_row:
+    #         if x in command:
+    #             color_changer()
+    #         else:
+    #             pass
 
 
-# def color_changer():
-#     global current_row, current_col
-#     ANSWER="SMART"
+def color_changer():
+    global current_row, current_col
+    ANSWER="SMART"
     
-#     for x in range(5):
-#         letter=label_grid[current_row][x]["text"]
-#         label=label_grid[current_row][x]
+    for x in range(5):
+        letter=label_grid[current_row][x]["text"]
+        label=label_grid[current_row][x]
 
-#         if letter == ANSWER[x]:
-#             label["bg"] = "green"
-#         elif letter in ANSWER:
-#             label["bg"] = "yellow"
-#         else:
-#             pass
+        if letter == ANSWER[x]:
+            print("GREEN")
+            label["bg"] = "green"
+        elif letter in ANSWER:
+            print("YELLOW")
+            label["bg"] = "yellow"
+        else:
+            print("BLANK")
+            pass
 
-#     current_row += 1
-#     current_col = 0
+    # current_row += 1
+    # current_col = 0
 
-    # if current_row[0]== "S":
+    # if label_grid[0][0]["text"]== "S":
     #     label= label_grid[current_row[0]]
     #     label["bg"] = "green"
     # else:
@@ -182,29 +185,29 @@ command= ["S","M","A","R","T"]
     #     label["bg"] = "yellow"
     
 
-def answer_checker():
-    global current_row, current_col
-    ANSWER="SMART"
+# def answer_checker():
+#     global current_row, current_col
+#     ANSWER="SMART"
 
-    guess = "".join([label["text"] for label in label_grid[current_row]])
+#     guess = "".join([label["text"] for label in label_grid[current_row]])
 
-    if len(guess) != 5:
-        return  # don't check unless 5 letters typed
+#     if len(guess) != 5:
+#         return  # don't check unless 5 letters typed
   
 
-    for x in range(5):
-        letter=label_grid[current_row][x]["text"]
-        label=label_grid[current_row][x]
+#     for x in range(5):
+#         letter=label_grid[current_row][x]["text"]
+#         label=label_grid[current_row][x]
 
-        if letter == ANSWER[x]:
-            label["bg"] = "green"
-        elif letter in ANSWER:
-            label["bg"] = "yellow"
-        else:
-            pass
+#         if letter == ANSWER[x]:
+#             label["bg"] = "green"
+#         elif letter in ANSWER:
+#             label["bg"] = "yellow"
+#         else:
+#             pass
 
-    current_row += 1
-    current_col = 0
+#     current_row += 1
+#     current_col = 0
 
 
 
@@ -405,7 +408,7 @@ frame3.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
 button10 = tk.Button(master = frame3,text= "A", bg = "light gray", width=5, height=5)
 button10.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
-button11 = tk.Button(master = frame3,text= "S", bg = "light gray", width=5, height=5)
+button11 = tk.Button(master = frame3,text= "S", bg = "light gray", width=5, height=5, command=letter_11)
 button11.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
 button12 = tk.Button(master = frame3,text= "D", bg = "light gray", width=5, height=5)
 button12.grid (row = 0, column = 2, sticky = "nsew", padx = 5, pady = 5)
@@ -428,7 +431,7 @@ frame4.pack()
 frame4.rowconfigure([0,1], minsize = 5)
 frame4.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
-button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=answer_checker)
+button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=color_changer)
 button19.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
 button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5)
 button20.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
