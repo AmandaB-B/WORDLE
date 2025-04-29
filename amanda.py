@@ -9,7 +9,8 @@ frame1.pack()
 frame1.rowconfigure([0,1,2,3,4,5,6,7], minsize = 50)
 frame1.columnconfigure([0,1,2,3,4,5,6], minsize = 50)
 
-WORD= "SMART"
+POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE"]
+
 
 
 
@@ -149,7 +150,12 @@ def color_changer():
         else:
             print("BLANK")
             pass
-
+def delete_letter():
+    global current_col, current_row
+    if current_col > 0:
+        current_col -= 1
+        label = label_grid[current_row][current_col]
+        label["text"] = " "
     # current_row += 1
     # current_col = 0
 
@@ -269,7 +275,7 @@ def letter_9():
 def letter_10():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "P"
+        label["text"] = "A"
 
         next_index()
 
@@ -369,7 +375,7 @@ def letter_26():
 def letter_28():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = "W"
+        label["text"] = "P"
 
         next_index()
 
@@ -406,23 +412,23 @@ frame3.pack()
 frame3.rowconfigure([0,1], minsize = 5)
 frame3.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
-button10 = tk.Button(master = frame3,text= "A", bg = "light gray", width=5, height=5)
+button10 = tk.Button(master = frame3,text= "A", bg = "light gray", width=5, height=5, command=letter_10)
 button10.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
 button11 = tk.Button(master = frame3,text= "S", bg = "light gray", width=5, height=5, command=letter_11)
 button11.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
-button12 = tk.Button(master = frame3,text= "D", bg = "light gray", width=5, height=5)
+button12 = tk.Button(master = frame3,text= "D", bg = "light gray", width=5, height=5, command=letter_12)
 button12.grid (row = 0, column = 2, sticky = "nsew", padx = 5, pady = 5)
-button13 = tk.Button(master = frame3,text= "F", bg = "light gray", width=5, height=5)
+button13 = tk.Button(master = frame3,text= "F", bg = "light gray", width=5, height=5, command=letter_13)
 button13.grid (row = 0, column = 3, sticky = "nsew", padx = 5, pady = 5)
-button14 = tk.Button(master = frame3,text= "G", bg = "light gray", width=5, height=5)
+button14 = tk.Button(master = frame3,text= "G", bg = "light gray", width=5, height=5, command=letter_14)
 button14.grid (row = 0, column = 4, sticky = "nsew", padx = 5, pady = 5)
-button15 = tk.Button(master = frame3,text= "H", bg = "light gray", width=5, height=5)
+button15 = tk.Button(master = frame3,text= "H", bg = "light gray", width=5, height=5, command=letter_15)
 button15.grid (row = 0, column = 5, sticky = "nsew", padx = 5, pady = 5)
-button16 = tk.Button(master = frame3,text= "J", bg = "light gray", width=5, height=5)
+button16 = tk.Button(master = frame3,text= "J", bg = "light gray", width=5, height=5, command=letter_16)
 button16.grid (row = 0, column = 6, sticky = "nsew", padx = 5, pady = 5)
-button17 = tk.Button(master = frame3,text= "K", bg = "light gray", width=5, height=5)
+button17 = tk.Button(master = frame3,text= "K", bg = "light gray", width=5, height=5, command=letter_17)
 button17.grid (row = 0, column = 7, sticky = "nsew", padx = 5, pady = 5)
-button18= tk.Button(master = frame3, text= "L",bg = "light gray", width=5, height=5)
+button18= tk.Button(master = frame3, text= "L",bg = "light gray", width=5, height=5, command=letter_18)
 button18.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
 frame4 = tk.Frame()
@@ -433,21 +439,21 @@ frame4.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
 button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=color_changer)
 button19.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
-button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5)
+button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5, command=letter_20)
 button20.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
-button21 = tk.Button(master = frame4,text= "X", bg = "light gray", width=5, height=5)
+button21 = tk.Button(master = frame4,text= "X", bg = "light gray", width=5, height=5, command=letter_21)
 button21.grid (row = 0, column = 2, sticky = "nsew", padx = 5, pady = 5)
-button22 = tk.Button(master = frame4,text= "C", bg = "light gray", width=5, height=5)
+button22 = tk.Button(master = frame4,text= "C", bg = "light gray", width=5, height=5, command=letter_22)
 button22.grid (row = 0, column = 3, sticky = "nsew", padx = 5, pady = 5)
-button23 = tk.Button(master = frame4,text= "V", bg = "light gray", width=5, height=5)
+button23 = tk.Button(master = frame4,text= "V", bg = "light gray", width=5, height=5, command=letter_23)
 button23.grid (row = 0, column = 4, sticky = "nsew", padx = 5, pady = 5)
-button24 = tk.Button(master = frame4,text= "B", bg = "light gray", width=5, height=5)
+button24 = tk.Button(master = frame4,text= "B", bg = "light gray", width=5, height=5, command=letter_24)
 button24.grid (row = 0, column = 5, sticky = "nsew", padx = 5, pady = 5)
-button25 = tk.Button(master = frame4,text= "N", bg = "light gray", width=5, height=5)
+button25 = tk.Button(master = frame4,text= "N", bg = "light gray", width=5, height=5, command=letter_25)
 button25.grid (row = 0, column = 6, sticky = "nsew", padx = 5, pady = 5)
-button26 = tk.Button(master = frame4,text= "M", bg = "light gray", width=5, height=5)
+button26 = tk.Button(master = frame4,text= "M", bg = "light gray", width=5, height=5, command=letter_26)
 button26.grid (row = 0, column = 7, sticky = "nsew", padx = 5, pady = 5)
-button27 = tk.Button(master = frame4,text= "<X]", bg = "light gray", width=5, height=5)
+button27 = tk.Button(master = frame4,text= "<X]", bg = "light gray", width=5, height=5, command=delete_letter)
 button27.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
 
