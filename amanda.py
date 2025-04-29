@@ -114,6 +114,7 @@ current_row=0
 def next_index():
     global current_col, current_row
     current_col += 1
+    
     if current_col >= len(label_grid[0]):
         current_col = 0
         current_row += 1
@@ -121,16 +122,6 @@ def next_index():
             current_row = len(label_grid) - 1 
 
 command= ["S","M","A","R","T"]
-
-# def answer_checker():
-#     if current_col == 0 and current_row < len(label_grid):
-#         color_changer()
-    # if current_row == label_grid[4]:
-    #     for x in current_row:
-    #         if x in command:
-    #             color_changer()
-    #         else:
-    #             pass
 
 
 def color_changer():
@@ -150,70 +141,19 @@ def color_changer():
         else:
             print("BLANK")
             pass
+
+
+def handler_enter(event=None):
+    color_changer()
+
+
 def delete_letter():
     global current_col, current_row
     if current_col > 0:
         current_col -= 1
         label = label_grid[current_row][current_col]
         label["text"] = " "
-    # current_row += 1
-    # current_col = 0
 
-    # if label_grid[0][0]["text"]== "S":
-    #     label= label_grid[current_row[0]]
-    #     label["bg"] = "green"
-    # else:
-    #     label= label_grid[current_row[0]]
-    #     label["bg"] = "yellow"
-    # if current_row[1]== "M":
-    #     label= label_grid[current_row[1]]
-    #     label["bg"] = "green"
-    # else:
-    #     label= label_grid[current_row[1]]
-    #     label["bg"] = "yellow"
-    # if current_row[2]== "A":
-    #     label= label_grid[current_row[2]]
-    #     label["bg"] = "green"
-    # else:
-    #     label= label_grid[current_row[2]]
-    #     label["bg"] = "yellow"
-    # if current_row[3]== "R":
-    #     label= label_grid[current_row[3]]
-    #     label["bg"] = "green"
-    # else:
-    #     label= label_grid[current_row[3]]
-    #     label["bg"] = "yellow"
-    # if current_row[4]== "T":
-    #     label= label_grid[current_row[4]]
-    #     label["bg"] = "green"
-    # else:
-    #     label= label_grid[current_row[4]]
-    #     label["bg"] = "yellow"
-    
-
-# def answer_checker():
-#     global current_row, current_col
-#     ANSWER="SMART"
-
-#     guess = "".join([label["text"] for label in label_grid[current_row]])
-
-#     if len(guess) != 5:
-#         return  # don't check unless 5 letters typed
-  
-
-#     for x in range(5):
-#         letter=label_grid[current_row][x]["text"]
-#         label=label_grid[current_row][x]
-
-#         if letter == ANSWER[x]:
-#             label["bg"] = "green"
-#         elif letter in ANSWER:
-#             label["bg"] = "yellow"
-#         else:
-#             pass
-
-#     current_row += 1
-#     current_col = 0
 
 
 
@@ -381,7 +321,9 @@ def letter_28():
 
 def handle_keypress(event):
     if event.char.isalpha():
-        label4["text"]=label4["text"]+event.char
+        label=label_grid[current_row][current_col]
+        label["text"]=label["text"] + event.char
+        next_index()
 
 
 
@@ -459,6 +401,7 @@ button27.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
 
 
-
+window.bind("<Key>", handle_keypress)
+window.bind("<Return>", handler_enter)
 
 window.mainloop()

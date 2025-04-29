@@ -110,6 +110,8 @@ alphabet= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","
  
 current_col =0
 current_row=0
+label=label_grid[current_row][current_col]
+letter=label_grid[current_row][current_col]["text"]
 
 def next_index():
     global current_col, current_row
@@ -125,6 +127,7 @@ command= ["S","M","A","R","T"]
 
 def color_changer():
     global current_row, current_col
+    global label, letter
     ANSWER="SMART"
     
     for x in range(5):
@@ -319,7 +322,9 @@ def letter_28():
         next_index()
 
 def handle_keypress(event):
+    global label, letter
     if event.char.isalpha():
+        letter=label_grid[current_row][current_col]["text"]
         label=label_grid[current_row][current_col]
         label["text"]=label["text"] + event.char
         next_index()
