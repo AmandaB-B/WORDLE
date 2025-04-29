@@ -9,6 +9,7 @@ frame1.pack()
 frame1.rowconfigure([0,1,2,3,4,5,6,7], minsize = 50)
 frame1.columnconfigure([0,1,2,3,4,5,6], minsize = 50)
 
+POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE"]
 
 
 
@@ -111,81 +112,217 @@ current_col =0
 current_row=0
 
 def next_index():
-        global current_col,current_row
-        if current_col >= len(label_grid[0]):
-            current_col=0
-            current_row +=1
+    global current_col, current_row
+    current_col += 1
+    if current_col >= len(label_grid[0]):
+        current_col = 0
+        current_row += 1
         if current_row >= len(label_grid):
-            current_row=0
-            current_col=0
-            
+            current_row = len(label_grid) - 1 
+
+command= ["S","M","A","R","T"]
+
+
+def color_changer():
+    global current_row, current_col
+    ANSWER="SMART"
+    
+    for x in range(5):
+        letter=label_grid[current_row][x]["text"]
+        label=label_grid[current_row][x]
+
+        if letter == ANSWER[x]:
+            print("GREEN")
+            label["bg"] = "green"
+        elif letter in ANSWER:
+            print("YELLOW")
+            label["bg"] = "yellow"
+        else:
+            print("BLANK")
+            pass
+
+
+def handler_enter(event=None):
+    color_changer()
+
+
+def delete_letter():
+    global current_col, current_row
+    if current_col > 0:
+        current_col -= 1
+        label = label_grid[current_row][current_col]
+        label["text"] = " "
+
+
+
+
              
 def letter_1():
     if current_row < len(label_grid) and current_col < len(label_grid[0]):
         label= label_grid[current_row][current_col]
-        label["text"] = label["text"] + "Q"
+        label["text"] = "Q"
+
+        next_index()
+def letter_2():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "W"
+
+        next_index()
+def letter_3():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "E"
+
+        next_index()
+def letter_4():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "R"
+
+        next_index()
+def letter_5():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "T"
+
+        next_index()
+def letter_6():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "Y"
+
+        next_index()
+def letter_7():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "U"
+
+        next_index()
+def letter_8():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "I"
+
+        next_index()
+def letter_9():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "O"
+
+        next_index()    
+def letter_10():
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "A"
 
         next_index()
 
-     
-def letter_2():
-    label1["text"]=label1["text"]+"W"
-def letter_3():
-    label1["text"]=label1["text"]+"E"
-def letter_4():
-    label1["text"]=label1["text"]+"R"
-def letter_5():
-    label1["text"]=label1["text"]+"T"
-def letter_6():
-    label1["text"]=label1["text"]+"Y"
-def letter_7():
-    label1["text"]=label1["text"]+"U"
-def letter_8():
-    label1["text"]=label1["text"]+"I"
-def letter_9():
-    label1["text"]=label1["text"]+"O"    
-def letter_10():
-    label1["text"]=label1["text"]+"P"
-
 def letter_11():
-    label1["text"]=label1["text"]+"S"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "S"
+
+        next_index()
 def letter_12():
-    label1["text"]=label1["text"]+"D"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "D"
+
+        next_index()
 def letter_13():
-    label1["text"]=label1["text"]+"F"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "F"
+
+        next_index()
 def letter_14():
-    label1["text"]=label1["text"]+"G"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "G"
+
+        next_index()
 def letter_15():
-    label1["text"]=label1["text"]+"H"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "H"
+
+        next_index()
 def letter_16():
-    label1["text"]=label1["text"]+"J"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "J"
+
+        next_index()
 def letter_17():
-    label1["text"]=label1["text"]+"K"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "K"
+
+        next_index()
 def letter_18():
-    label1["text"]=label1["text"]+"L"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "L"
+
+        next_index()
    
 def letter_20():
-    label1["text"]=label1["text"]+"Z"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "Z"
+
+        next_index()
 
 def letter_21():
-    label1["text"]=label1["text"]+"X"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "X"
+
+        next_index()
 def letter_22():
-    label1["text"]=label1["text"]+"C"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "C"
+
+        next_index()
 def letter_23():
-    label1["text"]=label1["text"]+"V"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "V"
+
+        next_index()
 def letter_24():
-    label1["text"]=label1["text"]+"B"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "B"
+
+        next_index()
 def letter_25():
-    label1["text"]=label1["text"]+"N"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "N"
+
+        next_index()
 def letter_26():
-    label1["text"]=label1["text"]+"M"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "M"
+
+        next_index()
 
 def letter_28():
-    label1["text"]=label1["text"]+"P"
+    if current_row < len(label_grid) and current_col < len(label_grid[0]):
+        label= label_grid[current_row][current_col]
+        label["text"] = "P"
+
+        next_index()
 
 def handle_keypress(event):
     if event.char.isalpha():
-        label4["text"]=label4["text"]+event.char
+        label=label_grid[current_row][current_col]
+        label["text"]=label["text"] + event.char
+        next_index()
 
 
 
@@ -216,23 +353,23 @@ frame3.pack()
 frame3.rowconfigure([0,1], minsize = 5)
 frame3.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
-button10 = tk.Button(master = frame3,text= "A", bg = "light gray", width=5, height=5)
+button10 = tk.Button(master = frame3,text= "A", bg = "light gray", width=5, height=5, command=letter_10)
 button10.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
-button11 = tk.Button(master = frame3,text= "S", bg = "light gray", width=5, height=5)
+button11 = tk.Button(master = frame3,text= "S", bg = "light gray", width=5, height=5, command=letter_11)
 button11.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
-button12 = tk.Button(master = frame3,text= "D", bg = "light gray", width=5, height=5)
+button12 = tk.Button(master = frame3,text= "D", bg = "light gray", width=5, height=5, command=letter_12)
 button12.grid (row = 0, column = 2, sticky = "nsew", padx = 5, pady = 5)
-button13 = tk.Button(master = frame3,text= "F", bg = "light gray", width=5, height=5)
+button13 = tk.Button(master = frame3,text= "F", bg = "light gray", width=5, height=5, command=letter_13)
 button13.grid (row = 0, column = 3, sticky = "nsew", padx = 5, pady = 5)
-button14 = tk.Button(master = frame3,text= "G", bg = "light gray", width=5, height=5)
+button14 = tk.Button(master = frame3,text= "G", bg = "light gray", width=5, height=5, command=letter_14)
 button14.grid (row = 0, column = 4, sticky = "nsew", padx = 5, pady = 5)
-button15 = tk.Button(master = frame3,text= "H", bg = "light gray", width=5, height=5)
+button15 = tk.Button(master = frame3,text= "H", bg = "light gray", width=5, height=5, command=letter_15)
 button15.grid (row = 0, column = 5, sticky = "nsew", padx = 5, pady = 5)
-button16 = tk.Button(master = frame3,text= "J", bg = "light gray", width=5, height=5)
+button16 = tk.Button(master = frame3,text= "J", bg = "light gray", width=5, height=5, command=letter_16)
 button16.grid (row = 0, column = 6, sticky = "nsew", padx = 5, pady = 5)
-button17 = tk.Button(master = frame3,text= "K", bg = "light gray", width=5, height=5)
+button17 = tk.Button(master = frame3,text= "K", bg = "light gray", width=5, height=5, command=letter_17)
 button17.grid (row = 0, column = 7, sticky = "nsew", padx = 5, pady = 5)
-button18= tk.Button(master = frame3, text= "L",bg = "light gray", width=5, height=5)
+button18= tk.Button(master = frame3, text= "L",bg = "light gray", width=5, height=5, command=letter_18)
 button18.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
 frame4 = tk.Frame()
@@ -241,28 +378,29 @@ frame4.pack()
 frame4.rowconfigure([0,1], minsize = 5)
 frame4.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
 
-button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5)
+button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=color_changer)
 button19.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
-button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5)
+button20 = tk.Button(master = frame4,text= "Z", bg = "light gray", width=5, height=5, command=letter_20)
 button20.grid (row = 0, column = 1, sticky = "nsew", padx = 5, pady = 5)
-button21 = tk.Button(master = frame4,text= "X", bg = "light gray", width=5, height=5)
+button21 = tk.Button(master = frame4,text= "X", bg = "light gray", width=5, height=5, command=letter_21)
 button21.grid (row = 0, column = 2, sticky = "nsew", padx = 5, pady = 5)
-button22 = tk.Button(master = frame4,text= "C", bg = "light gray", width=5, height=5)
+button22 = tk.Button(master = frame4,text= "C", bg = "light gray", width=5, height=5, command=letter_22)
 button22.grid (row = 0, column = 3, sticky = "nsew", padx = 5, pady = 5)
-button23 = tk.Button(master = frame4,text= "V", bg = "light gray", width=5, height=5)
+button23 = tk.Button(master = frame4,text= "V", bg = "light gray", width=5, height=5, command=letter_23)
 button23.grid (row = 0, column = 4, sticky = "nsew", padx = 5, pady = 5)
-button24 = tk.Button(master = frame4,text= "B", bg = "light gray", width=5, height=5)
+button24 = tk.Button(master = frame4,text= "B", bg = "light gray", width=5, height=5, command=letter_24)
 button24.grid (row = 0, column = 5, sticky = "nsew", padx = 5, pady = 5)
-button25 = tk.Button(master = frame4,text= "N", bg = "light gray", width=5, height=5)
+button25 = tk.Button(master = frame4,text= "N", bg = "light gray", width=5, height=5, command=letter_25)
 button25.grid (row = 0, column = 6, sticky = "nsew", padx = 5, pady = 5)
-button26 = tk.Button(master = frame4,text= "M", bg = "light gray", width=5, height=5)
+button26 = tk.Button(master = frame4,text= "M", bg = "light gray", width=5, height=5, command=letter_26)
 button26.grid (row = 0, column = 7, sticky = "nsew", padx = 5, pady = 5)
-button27 = tk.Button(master = frame4,text= "<X]", bg = "light gray", width=5, height=5)
+button27 = tk.Button(master = frame4,text= "<X]", bg = "light gray", width=5, height=5, command=delete_letter)
 button27.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
 
 
 
-
+window.bind("<Key>", handle_keypress)
+window.bind("<Return>", handler_enter)
 
 window.mainloop()
