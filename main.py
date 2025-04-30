@@ -124,7 +124,7 @@ def next_index():
 
 command= ["S","M","A","R","T"]
 
-
+ 
 def color_changer():
     global current_row, current_col
     global label, letter
