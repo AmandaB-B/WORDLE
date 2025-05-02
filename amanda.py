@@ -127,10 +127,8 @@ def next_index():
     current_col += 1
     
     if current_col >= len(label_grid[0]):
-        current_col = 0
-        current_row += 1
-        if current_row >= len(label_grid):
-            current_row = len(label_grid) - 1 
+        current_col = 5
+        
 
 command= ["S","M","A","R","T"]
 
@@ -138,7 +136,7 @@ command= ["S","M","A","R","T"]
 def color_changer():
     global current_row, current_col
     ANSWER="SMART"
-    
+   
     for x in range(5):
         letter=label_grid[current_row][x]["text"]
         label=label_grid[current_row][x]
@@ -152,10 +150,16 @@ def color_changer():
         else:
             print("BLANK")
             pass
+    
+
 
 
 def handler_enter(event=None):
+    global current_row, current_col
     color_changer()
+    current_row += 1
+    current_col = 0
+    
 
 
 def delete_letter(event):
