@@ -136,6 +136,7 @@ command= ["S","M","A","R","T"]
 def color_changer():
     global current_row, current_col
     ANSWER="SMART"
+    is_correct= True 
    
     for x in range(5):
         letter=label_grid[current_row][x]["text"]
@@ -149,16 +150,40 @@ def color_changer():
             label["bg"] = "yellow"
         else:
             print("BLANK")
+            is_correct=False
             pass
+    if is_correct:
+        winning_window()
+
+def winning_window():
+    winning_window=tk.Tk()
+    winning_window.title("Results")
+    winning_window.minsize(300,300)
+    Label = tk.Label(master = winning_window, text = "Congratulations!", bg = "green")
+    Label.pack()
+
+def losing_window():
+    losing_window=tk.Tk()
+    losing_window.minsize(300,300)
+    losing_window.title("Results")
+    Label1 = tk.Label(master = losing_window, text = "You lost :( Thanks for playing today!", bg = "red")
+    Label1.pack()
     
 
 
 
 def handler_enter(event=None):
+    ANSWER="SMART"
     global current_row, current_col
     color_changer()
+    
     current_row += 1
     current_col = 0
+    if current_row == len(label_grid) and color_changer is False:
+        losing_window()
+    
+
+
     
 
 
