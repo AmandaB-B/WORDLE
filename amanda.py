@@ -1,4 +1,6 @@
 import tkinter as tk 
+import random 
+
 
 window = tk.Tk()
 window.title("Wordle")
@@ -16,7 +18,10 @@ frame1.pack(pady=(10,20))
 frame1.rowconfigure([0,1,2,3,4,5], minsize =50)
 frame1.columnconfigure([0,1,2,3,4], minsize = 50)
 
-POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE"]
+POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE", "WATCH", "PLANT", "CATCH", "TREES", "GNOME"]
+
+WORD=random.choice(POTENTIAL_WORDS)
+
 
 
  
@@ -135,7 +140,7 @@ command= ["S","M","A","R","T"]
 
 def color_changer():
     global current_row, current_col
-    ANSWER="SMART"
+    ANSWER=WORD
     is_correct= True 
    
     for x in range(5):
@@ -154,6 +159,9 @@ def color_changer():
             pass
     if is_correct:
         winning_window()
+    else:
+        is_correct=False
+    return is_correct
 
 def winning_window():
     winning_window=tk.Tk()
@@ -169,17 +177,18 @@ def losing_window():
     Label1 = tk.Label(master = losing_window, text = "You lost :( Thanks for playing today!", bg = "red")
     Label1.pack()
     
+    
 
 
 
 def handler_enter(event=None):
-    ANSWER="SMART"
+    
     global current_row, current_col
     color_changer()
     
     current_row += 1
     current_col = 0
-    if current_row == len(label_grid) and color_changer is False:
+    if current_row == len(label_grid) and not color_changer is False:
         losing_window()
     
 
