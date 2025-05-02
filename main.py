@@ -3,16 +3,23 @@ import tkinter as tk
 window = tk.Tk()
 window.title("Wordle")
 
-frame1 = tk.Frame()
-frame1.pack()
+window.configure(padx=10, pady=10)
+window.minsize(600, 700)
 
-frame1.rowconfigure([0,1,2,3,4,5,6,7], minsize = 50)
-frame1.columnconfigure([0,1,2,3,4,5,6], minsize = 50)
+container = tk.Frame(master=window)
+container.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+frame1 = tk.Frame(master=container, width=100, height=100)
+frame1.pack(pady=(10,20))
+
+
+frame1.rowconfigure([0,1,2,3,4,5], minsize =50)
+frame1.columnconfigure([0,1,2,3,4], minsize = 50)
 
 POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE"]
 
 
-
+ 
 
 
         
@@ -92,11 +99,15 @@ label30.grid (row = 5, column = 4, sticky = "nsew", padx = 5, pady = 5)
 
 
 
-frame2 = tk.Frame()
-frame2.pack()
+frame2 = tk.Frame(master=container)
+frame2.pack(pady=5)
 
-frame2.rowconfigure([0,1], minsize = 5)
-frame2.columnconfigure([0,1,2,3,4,5,6,7,8,9,10], minsize = 5)
+frame2.rowconfigure([0], minsize = 5)
+frame2.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
+
+
+
+
 
 label_grid = [
     [label1, label2, label3, label4, label5],
@@ -110,12 +121,11 @@ alphabet= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","
  
 current_col =0
 current_row=0
-label=label_grid[current_row][current_col]
-letter=label_grid[current_row][current_col]["text"]
 
 def next_index():
     global current_col, current_row
     current_col += 1
+    
     if current_col >= len(label_grid[0]):
         current_col = 0
         current_row += 1
@@ -124,10 +134,9 @@ def next_index():
 
 command= ["S","M","A","R","T"]
 
- 
+
 def color_changer():
     global current_row, current_col
-    global label, letter
     ANSWER="SMART"
     
     for x in range(5):
@@ -149,7 +158,7 @@ def handler_enter(event=None):
     color_changer()
 
 
-def delete_letter():
+def delete_letter(event):
     global current_col, current_row
     if current_col > 0:
         current_col -= 1
@@ -326,7 +335,7 @@ def handle_keypress(event):
     if event.char.isalpha():
         letter=label_grid[current_row][current_col]["text"]
         label=label_grid[current_row][current_col]
-        label["text"]=label["text"] + event.char
+        label["text"]=event.char.upper()
         next_index()
 
 
@@ -352,11 +361,11 @@ button9.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 button28 = tk.Button(master = frame2,text= "P", bg = "light gray", width=5, height=5, command=letter_28)
 button28.grid (row = 0, column = 9, sticky = "nsew", padx = 5, pady = 5)
 
-frame3 = tk.Frame()
-frame3.pack()
+frame3 = tk.Frame(master=container, width=50, height=50)
+frame3.pack(pady=5)
 
-frame3.rowconfigure([0,1], minsize = 5)
-frame3.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
+frame3.rowconfigure([0], minsize = 5)
+frame3.columnconfigure([0,1,2,3,4,5,6,7,8], minsize = 5)
 
 button10 = tk.Button(master = frame3,text= "A", bg = "light gray", width=5, height=5, command=letter_10)
 button10.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
@@ -377,11 +386,11 @@ button17.grid (row = 0, column = 7, sticky = "nsew", padx = 5, pady = 5)
 button18= tk.Button(master = frame3, text= "L",bg = "light gray", width=5, height=5, command=letter_18)
 button18.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
-frame4 = tk.Frame()
-frame4.pack()
+frame4 = tk.Frame(master=container, width=50, height=50)
+frame4.pack(pady=5)
 
-frame4.rowconfigure([0,1], minsize = 5)
-frame4.columnconfigure([0,1,2,3,4,5,6,7,8,9], minsize = 5)
+frame4.rowconfigure([0], minsize = 5)
+frame4.columnconfigure([0,1,2,3,4,5,6,7,8], minsize = 5)
 
 button19= tk.Button(master = frame4, text= "ENTER",bg = "light gray", width=5, height=5, command=color_changer)
 button19.grid (row = 0, column = 0, sticky = "nsew", padx = 5, pady = 5)
@@ -407,5 +416,6 @@ button27.grid (row = 0, column = 8, sticky = "nsew", padx = 5, pady = 5)
 
 window.bind("<Key>", handle_keypress)
 window.bind("<Return>", handler_enter)
+window.bind("<BackSpace>", delete_letter)
 
 window.mainloop()

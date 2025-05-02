@@ -123,7 +123,7 @@ current_col =0
 current_row=0
 
 def next_index():
-    global current_col, current_row
+    global current_col
     current_col += 1
     
     if current_col >= len(label_grid[0]):
