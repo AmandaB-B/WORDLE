@@ -153,6 +153,7 @@ def color_changer():
         elif letter in ANSWER:
             print("YELLOW")
             label["bg"] = "yellow"
+            is_correct=False
         else:
             print("BLANK")
             is_correct=False
