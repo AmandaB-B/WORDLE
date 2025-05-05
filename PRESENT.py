@@ -18,7 +18,7 @@ frame1.pack(pady=(10,20))
 frame1.rowconfigure([0,1,2,3,4,5], minsize =50)
 frame1.columnconfigure([0,1,2,3,4], minsize = 50)
 
-POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE", "WATCH", "PLANT", "CATCH", "TREES", "GNOME"]
+POTENTIAL_WORDS= ["SMART", "TULIP", "SCONE", "WATCH", "PLANT", "TREES", "GNOME"]
 
 WORD=random.choice(POTENTIAL_WORDS)
 
@@ -122,7 +122,7 @@ label_grid = [
     [label21, label22, label23, label24, label25],
     [label26, label27, label28, label29, label30]
 ]
-alphabet= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+
  
 current_col =0
 current_row=0
@@ -135,7 +135,7 @@ def next_index():
         current_col = 5
         
 
-command= ["S","M","A","R","T"]
+
 
 
 def color_changer():
@@ -181,14 +181,14 @@ def losing_window():
 
 
 
-def handler_enter(event=None):
+def handler_enter(event):
     
     global current_row, current_col
     color_changer()
     
     current_row += 1
     current_col = 0
-    if current_row == len(label_grid) and not color_changer is False:
+    if current_row == len(label_grid) and not color_changer is True:
         losing_window()
     
 
